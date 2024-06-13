@@ -164,3 +164,12 @@ export const footer = {
 		['Sitemap', 'College TPO registration', 'List of Companies'],
 	],
 };
+
+export const languages = [
+	{ label: 'English', value: 'en' },
+	{ label: 'French', value: 'fr' },
+	{ label: 'Chinese', value: 'zh' },
+	{ label: 'Hindi', value: 'hi' },
+	{ label: 'Spanish', value: 'es' },
+	{ label: 'Portuguese', value: 'pt' },
+];

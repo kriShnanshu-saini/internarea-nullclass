@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 import { LuSearch } from 'react-icons/lu';
 import { SlMenu } from 'react-icons/sl';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
-import { navItems } from '@/data/constants';
+import { languages, navItems } from '@/data/constants';
+import { GrLanguage } from 'react-icons/gr';
 
 const Navbar = () => {
 	const [showMenu, setShowMenu] = useState(false);
 	const [showRegisterMenu, setShowRegisterMenu] = useState(false);
-	const user = 'null';
+	const [selectedLanguage, setSelectedLanguage] = useState('en');
+	const [toggleLanguageMenu, setToggleLanguageMenu] = useState(false);
+	const user = null;
 
 	const toggleMenu = () => {
 		setShowMenu(prev => !prev);
@@ -190,6 +193,48 @@ const Navbar = () => {
 								Admin
 							</Link>
 						</li>
+						{!user && (
+							// <li className='relative text-[--primary-text] cursor-pointer px-2 rounded-sm transition-colors group hover:bg-[--grey] '>
+							// 	<label htmlFor="language" className='cursor-pointer flex items-center justify-center  '>
+							// 		<GrLanguage className='size-5 text-[--primary-text] group-hover:text-black '/>
+							// 		<select name="selectLanguage" id="language" className='outline-none py-2 cursor-pointer flex-1 pl-2 bg-inherit group-hover:text-black '>
+							// 			{languages.map(language => (
+							// 				<option value={language.code}>{language.lang}</option>
+							// 			))}
+							// 		</select>
+							// 	</label>
+							// </li>
+							<li
+								className='relative flex items-center justify-center gap-x-1 p-2 bg-white rounded-sm group '
+								onClick={() => setToggleLanguageMenu(prev => !prev)}>
+								<GrLanguage className='size-5 text-[--primary-text] hover:text-black ' />
+								<ul
+									className={`absolute top-full right-2 bg-inherit shadow-md w-32 mt-2 z-50 ${
+										toggleLanguageMenu ? 'block' : 'hidden'
+									} `}>
+									{languages.map(language => (
+										<li
+											key={language.value}
+											className='w-full hover:bg-slate-50 cursor-pointer text-[--primary-text] hover:text-black '>
+											<label
+												htmlFor={`language-${language.value}`}
+												className='block w-full px-2 py-1 cursor-pointer '>
+												<input
+													type='radio'
+													name='selectLanguage'
+													id={`language-${language.value}`}
+													checked={selectedLanguage === language.value}
+													onChange={() => setSelectedLanguage(language.value)}
+													className='appearance-none'
+												/>
+												<span>{language.label}</span>
+											</label>
+										</li>
+									))}
+									{console.log(selectedLanguage)}
+								</ul>
+							</li>
+						)}
 					</ul>
 				</div>
 			</div>
