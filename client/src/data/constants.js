@@ -1,6 +1,7 @@
 export const navItems = [
 	{
 		title: 'Internships',
+		href: '/internships',
 		dropdownContent: [
 			{
 				heading: 'Top locations',
@@ -44,6 +45,7 @@ export const navItems = [
 	},
 	{
 		title: 'Jobs',
+		href: '/jobs',
 		dropdownContent: [
 			{
 				heading: 'Top Locations',

@@ -7,10 +7,13 @@ import InternshipDetails from '@/data/internshipDetails.json';
 import { JobData } from '@/data/jobsDetails';
 import UICarousel from '@/lib/utils/UICarousel';
 import { popularCategories, stats, carouselImages } from '@/data/constants';
+import Login from './Login';
+import { useNavbar } from '@/context/NavbarContext';
 
 const Home = () => {
 	const [internshipData, setInternshipData] = useState([]);
 	const [jobData, setJobData] = useState([]);
+	const { showLogin } = useNavbar();
 
 	useEffect(() => {
 		// TODO: use tanstack query to fetch data from db and can also add skeleton feature while fetching data to the Card
@@ -21,6 +24,7 @@ const Home = () => {
 	return (
 		<>
 			<main className=''>
+				{showLogin && <Login />}
 				<section id='hero' className='w-full h-screen max-w-[90%] mx-auto p-1'>
 					<div className='relative'>
 						<h1 className='text-center text-6xl font-bold text-[#333] mt-[3rem]'>

@@ -6,12 +6,14 @@ import { SlMenu } from 'react-icons/sl';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 import { languages, navItems } from '@/data/constants';
 import { GrLanguage } from 'react-icons/gr';
+import { useNavbar } from '@/context/NavbarContext';
 
 const Navbar = () => {
 	const [showMenu, setShowMenu] = useState(false);
 	const [showRegisterMenu, setShowRegisterMenu] = useState(false);
 	const [selectedLanguage, setSelectedLanguage] = useState('en');
 	const [toggleLanguageMenu, setToggleLanguageMenu] = useState(false);
+	const { setShowLogin } = useNavbar();
 	const user = null;
 
 	const toggleMenu = () => {
@@ -19,9 +21,13 @@ const Navbar = () => {
 	};
 
 	return (
-		<nav className='border-b-2 w-full text-nowrap bg-inherit z-50'>
+		<nav className='relative border-b-2 w-full text-nowrap bg-inherit z-20'>
 			<div className='flex justify-between md:justify-between items-center gap-x-4 md:max-w-[95%] lg:max-w-[90%]  px-2  mx-auto '>
-				{/* left navbar section */}
+				{/* 
+				===========================
+					left navbar section
+				===========================
+				*/}
 				<div className='flex items-center justify-start gap-x-1 md:max-lg:gap-x-4'>
 					<button className='p-2 md:hidden' onClick={toggleMenu} aria-label='open sidebar menu'>
 						<SlMenu className='text-lg' />
@@ -34,8 +40,8 @@ const Navbar = () => {
 						/>
 					</Link>
 
-					{/* sidebar */}
-					<div className='absolute top-0 left-0 w-full h-vh bg-black/10 z-40'></div>
+					{/* sidebar - mobile */}
+					<div className='absolute top-0 left-0 w-full h-vh bg-black/10 z-60'></div>
 					<div
 						className={`md:hidden absolute top-0 left-0 w-4/5 h-dvh max-w-[320px] bg-white shadow-lg rounded-br rounded-tr -translate-x-full transition-transform z-50 ${
 							showMenu ? 'translate-x-0' : ''
@@ -90,17 +96,17 @@ const Navbar = () => {
 							) : (
 								<>
 									<li className='mb-1 cursor-pointer hover:bg-zinc-100 transition-colors font-semibold '>
-										<Link className='w-full block px-4 py-3' to='/jobs'>
+										<button className='w-full block px-4 py-3' onClick={() => setShowLogin(true)}>
 											Login
-										</Link>
+										</button>
 									</li>
 									<li className='mb-1 cursor-pointer hover:bg-zinc-100 transition-colors font-semibold '>
-										<Link className='w-full block px-4 py-3' to='/jobs'>
+										<Link className='w-full block px-4 py-3' to='/hire-talent'>
 											Hire Talent
 										</Link>
 									</li>
 									<li className='mb-1 cursor-pointer hover:bg-zinc-100 transition-colors font-semibold '>
-										<Link className='w-full block px-4 py-3' to='/jobs'>
+										<Link className='w-full block px-4 py-3' to='/login/admin'>
 											Admin
 										</Link>
 									</li>
@@ -114,9 +120,11 @@ const Navbar = () => {
 						{navItems.map(navItem => (
 							<li className='has-[:hover]:bg-[#eafcff] has-[:hover]:text-blue-600' key={navItem.title}>
 								<HoverCard openDelay={1} closeDelay={0}>
-									<HoverCardTrigger className='inline-flex gap-x-1 justify-center items-center px-3 py-6 text-sm font-semibold cursor-pointer'>
-										{navItem.title} <ChevronDown className='size-4' />
-									</HoverCardTrigger>
+									<Link to={navItem.href}>
+										<HoverCardTrigger className='inline-flex gap-x-1 justify-center items-center px-3 py-6 text-sm font-semibold cursor-pointer'>
+											{navItem.title} <ChevronDown className='size-4' />
+										</HoverCardTrigger>
+									</Link>
 									<HoverCardContent
 										align='start'
 										sideOffset={0}
@@ -146,7 +154,11 @@ const Navbar = () => {
 					</ul>
 				</div>
 
-				{/* right navbar section - mobile */}
+				{/* 
+				===========================
+					right navbar section
+				===========================
+				*/}
 				<div className='relative'>
 					<button
 						onClick={() => setShowRegisterMenu(prev => !prev)}
@@ -175,7 +187,9 @@ const Navbar = () => {
 							</button>
 						</li>
 						<li>
-							<button className='text-[#00A5EC] text-sm font-semibold px-5 py-2 border border-[#00A5EC] rounded outline-none hidden md:block'>
+							<button
+								onClick={() => setShowLogin(true)}
+								className='text-[#00A5EC] text-sm font-semibold px-5 py-2 border border-[#00A5EC] rounded outline-none hidden md:block'>
 								Login
 							</button>
 						</li>
@@ -193,17 +207,7 @@ const Navbar = () => {
 								Admin
 							</Link>
 						</li>
-						{!user && (
-							// <li className='relative text-[--primary-text] cursor-pointer px-2 rounded-sm transition-colors group hover:bg-[--grey] '>
-							// 	<label htmlFor="language" className='cursor-pointer flex items-center justify-center  '>
-							// 		<GrLanguage className='size-5 text-[--primary-text] group-hover:text-black '/>
-							// 		<select name="selectLanguage" id="language" className='outline-none py-2 cursor-pointer flex-1 pl-2 bg-inherit group-hover:text-black '>
-							// 			{languages.map(language => (
-							// 				<option value={language.code}>{language.lang}</option>
-							// 			))}
-							// 		</select>
-							// 	</label>
-							// </li>
+						{user && (
 							<li
 								className='relative flex items-center justify-center gap-x-1 p-2 bg-white rounded-sm group '
 								onClick={() => setToggleLanguageMenu(prev => !prev)}>
