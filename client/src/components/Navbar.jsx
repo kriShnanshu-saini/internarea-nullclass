@@ -50,7 +50,7 @@ const Navbar = () => {
 						<button className='block ml-auto mr-4 mt-1 text-3xl py-1 px-2'>&times;</button>
 						{user && (
 							<div className='mb-1 cursor-pointer font-semibold border-b border-dashed'>
-								<Link className='flex gap-x-2 items-center w-full px-4 py-2' to='/profile'>
+								<Link to='/profile' className='flex gap-x-2 items-center w-full px-4 py-2'>
 									<img
 										className='size-12 rounded-full object-cover object-center'
 										src='https://images.unsplash.com/photo-1601455763557-db1bea8a9a5a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dXNlciUyMGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D'
@@ -65,12 +65,12 @@ const Navbar = () => {
 						)}
 						<ul>
 							<li className='mb-1 cursor-pointer hover:bg-zinc-100 transition-colors font-semibold '>
-								<Link className='w-full block px-4 py-3' to='/internships'>
+								<Link to='/internships' className='w-full block px-4 py-3'>
 									Internships
 								</Link>
 							</li>
 							<li className='mb-1 cursor-pointer hover:bg-zinc-100 transition-colors font-semibold '>
-								<Link className='w-full block px-4 py-3' to='/jobs'>
+								<Link to='/jobs' className='w-full block px-4 py-3'>
 									Jobs
 								</Link>
 							</li>
@@ -78,17 +78,17 @@ const Navbar = () => {
 							{user ? (
 								<>
 									<li className='mb-1 cursor-pointer hover:bg-zinc-100 transition-colors font-semibold '>
-										<Link className='w-full block px-4 py-3' to='/applications'>
+										<Link to='/applications' className='w-full block px-4 py-3'>
 											My Applications
 										</Link>
 									</li>
 									<li className='mb-1 cursor-pointer hover:bg-zinc-100 transition-colors font-semibold '>
-										<Link className='w-full block px-4 py-3' to='/applications'>
+										<Link to='/applications' className='w-full block px-4 py-3'>
 											My Resume
 										</Link>
 									</li>
 									<li className='mb-1 cursor-pointer hover:bg-zinc-100 transition-colors font-semibold '>
-										<Link className='w-full block px-4 py-3' to='/logout'>
+										<Link to='/logout' className='w-full block px-4 py-3'>
 											Logout
 										</Link>
 									</li>
@@ -101,12 +101,12 @@ const Navbar = () => {
 										</button>
 									</li>
 									<li className='mb-1 cursor-pointer hover:bg-zinc-100 transition-colors font-semibold '>
-										<Link className='w-full block px-4 py-3' to='/hire-talent'>
+										<Link to='/hire-talent' className='w-full block px-4 py-3' >
 											Hire Talent
 										</Link>
 									</li>
 									<li className='mb-1 cursor-pointer hover:bg-zinc-100 transition-colors font-semibold '>
-										<Link className='w-full block px-4 py-3' to='/login/admin'>
+										<Link to='/login/admin' className='w-full block px-4 py-3' >
 											Admin
 										</Link>
 									</li>

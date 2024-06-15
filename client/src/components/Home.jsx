@@ -9,6 +9,7 @@ import UICarousel from '@/lib/utils/UICarousel';
 import { popularCategories, stats, carouselImages } from '@/data/constants';
 import Login from './Login';
 import { useNavbar } from '@/context/NavbarContext';
+import { Footer, Navbar } from './index';
 
 const Home = () => {
 	const [internshipData, setInternshipData] = useState([]);
@@ -23,6 +24,7 @@ const Home = () => {
 
 	return (
 		<>
+			<Navbar/>
 			<main className=''>
 				{showLogin && <Login />}
 				<section id='hero' className='w-full h-screen max-w-[90%] mx-auto p-1'>
@@ -118,6 +120,7 @@ const Home = () => {
 					</div>
 				</section>
 			</main>
+			<Footer />
 		</>
 	);
 };

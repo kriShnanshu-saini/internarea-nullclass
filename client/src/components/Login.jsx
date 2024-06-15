@@ -93,7 +93,7 @@ const Login = () => {
 						Login
 					</button>
 					<p className='self-center text-[--primary-text] font-medium '>
-						New to Internarea? <Link to='/register'> Register</Link>
+						New to Internarea? <Link to='/register' className='hover:underline underline-offset-2 '  > Register</Link>
 					</p>
 				</form>
 			</div>

@@ -175,3 +175,30 @@ export const languages = [
 	{ label: 'Spanish', value: 'es' },
 	{ label: 'Portuguese', value: 'pt' },
 ];
+
+export const registerFormFields = [
+	{
+		name: 'email',
+		label: 'Email',
+		type: 'email',
+		placeholder: 'john@example.com',
+	},
+	{
+		name: 'password',
+		label: 'Password',
+		type: 'password',
+		placeholder: 'Must be at least 6 characters',
+	},
+	{
+		name: 'firstName',
+		label: 'First Name',
+		type: 'text',
+		placeholder: 'John'
+	},
+	{
+		name: 'lastName',
+		label: 'Last Name',
+		type: 'text',
+		placeholder: 'Doe'
+	}
+]
