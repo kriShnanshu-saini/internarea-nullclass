@@ -44,8 +44,8 @@ const Register = () => {
 				className='grid place-content-center min-h-dvh min-w-[305px] '
 				style={{ background: 'url("/images/registration-background.png") fixed no-repeat bottom/cover' }}>
 				{showLogin && <Login />}
-				<header className='px-6 mt-4 md:mt-6 bg-orange-50 '>
-					<div className='relative mb-4 lg:mb-6 w-fit min-[400px]:mx-auto bg-red-100 '>
+				<header className='px-6 mt-4 md:mt-6 '>
+					<div className='relative mb-4 lg:mb-6 w-fit min-[400px]:mx-auto '>
 						<h1 className='text-xl font-bold lg:text-[40px] lg:font-extrabold text-[--heading] leading-none  '>
 							Sign-up and apply for free
 						</h1>
@@ -53,7 +53,7 @@ const Register = () => {
 							style={{ background: "url('/images/underline.svg') no-repeat center/contain " }}
 							className='absolute top-1/2 left-1/2 lg:top-[90%] lg:right-0 w-1/2 h-10'></span>
 					</div>
-					<p className='lg:font-medium lg:text-2xl min-[400px]:text-center text-[--heading] bg-green-50 '>
+					<p className='lg:font-medium lg:text-2xl min-[400px]:text-center text-[--heading] '>
 						1,50,000+ companies hiring on Internarea
 					</p>
 				</header>
