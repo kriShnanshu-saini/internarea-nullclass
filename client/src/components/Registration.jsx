@@ -15,7 +15,7 @@ const registerSchema = z.object({
 	lastName: z.string().min(1, { message: 'Last name is required' }),
 });
 
-const Register = () => {
+const Registration = () => {
 	const { showLogin, setShowLogin } = useNavbar();
 
 	useEffect(() => {
@@ -32,13 +32,6 @@ const Register = () => {
 
 	return (
 		<>
-			<nav className='w-full min-w-[305px] py-2 px-2 '>
-				<div className='max-w-screen-xl mx-auto '>
-					<Link to='/'>
-						<img src='/images/logo.png' alt='' className='w-20 sm:w-[100px] md:w-[120px] -mt-2 ' />
-					</Link>
-				</div>
-			</nav>
 			<section
 				id='register'
 				className='grid place-content-center min-h-dvh min-w-[305px] '
@@ -172,4 +165,4 @@ const Register = () => {
 	);
 };
 
-export default Register;
+export default Registration;

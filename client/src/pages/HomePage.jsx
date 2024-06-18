@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { HiMiniFire } from 'react-icons/hi2';
 
-import UICard from '../lib/utils/UICard';
-import InternshipDetails from '@/data/internshipDetails.json';
+import UICard from '@/lib/utils/UICard';
 import { JobData } from '@/data/jobsDetails';
 import UICarousel from '@/lib/utils/UICarousel';
-import { popularCategories, stats, carouselImages } from '@/data/constants';
-import Login from './Login';
 import { useNavbar } from '@/context/NavbarContext';
+import { Navbar, Footer, Login } from '@/components';
+import InternshipDetails from '@/data/internshipDetails.json';
+import { popularCategories, stats, carouselImages } from '@/data/constants';
+import { FcGoogle } from 'react-icons/fc';
 
-const Home = () => {
+const HomePage = () => {
 	const [internshipData, setInternshipData] = useState([]);
 	const [jobData, setJobData] = useState([]);
 	const { showLogin } = useNavbar();
@@ -20,9 +21,9 @@ const Home = () => {
 		setInternshipData(InternshipDetails);
 		setJobData(JobData);
 	}, []);
-
 	return (
 		<>
+			<Navbar />
 			<main className=''>
 				{showLogin && <Login />}
 				<section id='hero' className='w-full h-screen max-w-[90%] mx-auto p-1'>
@@ -117,7 +118,6 @@ const Home = () => {
 						))}
 					</div>
 				</section>
-
 				<div
 					className='flex justify-between items-center py-24 px-16 '
 					style={{ background: 'url("/images/footer-bg.png") no-repeat center/cover' }}>
@@ -135,8 +135,9 @@ const Home = () => {
 					</div>
 				</div>
 			</main>
+			<Footer />
 		</>
 	);
 };
 
-export default Home;
+export default HomePage;

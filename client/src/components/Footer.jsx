@@ -13,22 +13,6 @@ import { footer } from '@/data/constants';
 const Footer = () => {
 	return (
 		<footer className='w-full min-h-screen bg-[#333]'>
-			<div
-				className='flex justify-between items-center py-24 px-16 '
-				style={{ background: 'url("/images/footer-bg.png") no-repeat center/cover' }}>
-				<p className='text-4xl font-bold text-white '>
-					Empower your career with <br />
-					InternArea today
-				</p>
-				<div className='flex items-center justify-center gap-x-4 '>
-					<button className='flex items-center justify-center gap-x-2 text-lg bg-white px-8 py-3 rounded-md font-medium text-[--primary-text] '>
-						<FcGoogle /> Continue with Google
-					</button>
-					<button className='text-lg font-medium bg-black/25 px-8 py-3 rounded-md text-white '>
-						Register now
-					</button>
-				</div>
-			</div>
 			<div className='w-full py-8 px-12 text-white'>
 				<div className='grid grid-cols-4 border-b border-[--grey] pb-8 '>
 					{footer.header.map(data => (
